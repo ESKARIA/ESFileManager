@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Enum with diffrent type of storage. You can check case for additional inforamtion
 public enum ESFileManagerDirectory {
     
     /// Use this directory to store user-generated content. The contents of this directory can be made available to the user through file sharing; therefore, this directory should only contain files that you may wish to expose to the user. The contents of this directory are backed up by iTunes and iCloud.

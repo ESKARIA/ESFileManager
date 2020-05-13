@@ -8,10 +8,6 @@
 
 import Foundation
 
-enum testerror: Error {
-    case test
-}
-
 // MARK: - ESFileManager
 
 /// Manager for write and read file from bundle
