@@ -8,21 +8,20 @@
 
 import Foundation
 
-/// File format for write on disk
-public enum ESFileFormatModel: String {
-    case txt = ".txt"
-}
-
+/// Model of file on disk. Contain Data and file storage model (like file name and file extension)
 public struct ESFileModel {
-    public var name: String
-    public var fileFormat: ESFileFormatModel
     
-    public init(name: String, fileFormat: ESFileFormatModel = .txt) {
-        self.name = name
-        self.fileFormat = fileFormat
-    }
+    /// data represent of file
+    public var data: Data?
+    /// file storage model (like file name and file extension)
+    public var storage: ESFileStorageModel
     
-    func getFileName() -> String {
-        return self.name + self.fileFormat.rawValue
+    /// Init model
+    /// - Parameters:
+    ///   - data: data represent of file
+    ///   - storage: storage model (file name and extension)
+    public init(data: Data?, storage: ESFileStorageModel) {
+        self.data = data
+        self.storage = storage
     }
 }

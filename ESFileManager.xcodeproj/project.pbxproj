@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D4BDE4D5246C4EC800E745E1 /* ESFileStorageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BDE4D4246C4EC800E745E1 /* ESFileStorageModel.swift */; };
 		D4EA4622246C0683003C40D6 /* ESFileManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4EA4618246C0682003C40D6 /* ESFileManager.framework */; };
 		D4EA4627246C0683003C40D6 /* ESFileManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EA4626246C0683003C40D6 /* ESFileManagerTests.swift */; };
 		D4EA4629246C0683003C40D6 /* ESFileManager.h in Headers */ = {isa = PBXBuildFile; fileRef = D4EA461B246C0683003C40D6 /* ESFileManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -27,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D4BDE4D4246C4EC800E745E1 /* ESFileStorageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESFileStorageModel.swift; sourceTree = "<group>"; };
 		D4EA4618246C0682003C40D6 /* ESFileManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ESFileManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4EA461B246C0683003C40D6 /* ESFileManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ESFileManager.h; sourceTree = "<group>"; };
 		D4EA461C246C0683003C40D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				D4EA4639246C16A0003C40D6 /* ESFIleModel.swift */,
+				D4BDE4D4246C4EC800E745E1 /* ESFileStorageModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -242,6 +245,7 @@
 				D4EA4638246C070F003C40D6 /* ESFileManagerDirectory.swift in Sources */,
 				D4EA463A246C16A0003C40D6 /* ESFIleModel.swift in Sources */,
 				D4EA4636246C06B1003C40D6 /* ESFileManagerProtocol.swift in Sources */,
+				D4BDE4D5246C4EC800E745E1 /* ESFileStorageModel.swift in Sources */,
 				D4EA4635246C06B1003C40D6 /* ESFileManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -15,7 +15,7 @@ class ESFileManagerTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        self.diskManager = ESFileManager(defaultFileInfo: ESFileModel(name: "Test"), defaultDirectory: .caches(urlPath: "Test"))
+        self.diskManager = ESFileManager(defaultDirectory: .documents(useBackups: false))
    }
     
     override func tearDown() {
@@ -25,12 +25,19 @@ class ESFileManagerTests: XCTestCase {
     
     func testWriteReadCycle() {
         let data = "AdvancedLoggerFileManagerTest".data(using: .utf8) ?? Data()
-        self.diskManager.write(data: data) { (error) in
+        let file = ESFileModel(data: data, storage: ESFileStorageModel(name: "Test", fileExtension: .txt))
+        self.diskManager.write(file: file, at: nil) { (error) in
             XCTAssertNil(error, error?.localizedDescription ?? "")
         }
-        self.diskManager.read { (_data, error) in
+        self.diskManager.read(fileStorage: ESFileStorageModel(name: "Test", fileExtension: .txt), at: nil) { (_data, error) in
             XCTAssertNil(error, error?.localizedDescription ?? "")
-            XCTAssertEqual(data, _data)
+            XCTAssertEqual(data, _data?.data)
+        }
+    }
+    
+    func testList() {
+        self.diskManager.listFiles(at: nil) { (model, error) in
+            XCTAssertGreaterThan(model?.count ?? 0, 0)
         }
     }
     

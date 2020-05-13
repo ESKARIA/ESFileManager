@@ -17,39 +17,35 @@ enum testerror: Error {
 /// Manager for write and read file from bundle
 public struct ESFileManager {
     
-    private var defaultFileInfo: ESFileModel
     private var defaultDirectory: ESFileManagerDirectory
     
-    public init(defaultFileInfo: ESFileModel, defaultDirectory: ESFileManagerDirectory = .applicationSupport(useBackups: false)) {
-        self.defaultFileInfo = defaultFileInfo
+    public init(defaultDirectory: ESFileManagerDirectory = .applicationSupport(useBackups: false)) {
         self.defaultDirectory = defaultDirectory
     }
     
-    private func getDocumentsDirectory() throws -> (url: URL, useBackups: Bool) {
+    private func getDocumentsDirectory(fileName: String?, at directory: ESFileManagerDirectory? = nil) throws -> (url: URL, useBackups: Bool) {
         
         var path: URL = FileManager.default.temporaryDirectory
         var _useBackups = false
+        let _directory = directory != nil ? directory! : self.defaultDirectory
         
         do {
-            switch self.defaultDirectory {
+            switch _directory {
             case .documents(urlPath: let urlPath, useBackups: let useBackups):
                 path = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
                 _useBackups = useBackups
                 if let urlPath = urlPath {
-                    fatalError("Пока что не работает")
                     path.appendPathComponent(urlPath)
                 }
             case .applicationSupport(urlPath: let urlPath, useBackups: let useBackups):
                 path = try FileManager.default.url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
                 _useBackups = useBackups
                 if let urlPath = urlPath {
-                    fatalError("Пока что не работает")
                     path.appendPathComponent(urlPath)
                 }
             case .caches(urlPath: let urlPath):
                 path = try FileManager.default.url(for: .cachesDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
                 if let urlPath = urlPath {
-                    fatalError("Пока что не работает")
                     path.appendPathComponent(urlPath)
                 }
             case .tmp:
@@ -58,8 +54,90 @@ public struct ESFileManager {
         } catch {
             throw error
         }
+        if let file = fileName {
+            path = path.appendingPathComponent(file)
+        }
+        return (path, _useBackups)
+    }
+    
+    
+    private func _write(file: ESFileModel, at directory: ESFileManagerDirectory? = nil, completion: (Error?) -> Void) {
+        do {
+            guard let data = file.data else {
+                completion(nil)
+                return
+            }
+            if let _directory = directory {
+                try data.write(to: self.getDocumentsDirectory(fileName: file.storage.getFileName(), at: _directory).url)
+            } else {
+                try data.write(to: self.getDocumentsDirectory(fileName: file.storage.getFileName()).url)
+            }
+            completion(nil)
+        } catch {
+            completion(error)
+        }
+    }
+    
+    private func _read(fileStorage: ESFileStorageModel, at directory: ESFileManagerDirectory? = nil, completion: (ESFileModel?, Error?) -> Void) {
+        do {
+            var file = ESFileModel(data: nil, storage: fileStorage)
+            var data: Data?
+            
+            if let _directory = directory {
+                data = try FileManager.default.contents(atPath: self.getDocumentsDirectory(fileName: file.storage.getFileName(), at: _directory).url.path)
+            } else {
+                data = try FileManager.default.contents(atPath: self.getDocumentsDirectory(fileName: file.storage.getFileName()).url.path)
+            }
+            
+            file.data = data
+            completion(file, nil)
+        } catch {
+            completion(nil, error)
+        }
+    }
+    
+    private func _remove(file: ESFileStorageModel, at directory: ESFileManagerDirectory? = nil, completion: (Error?) -> Void) {
+        do {
+            
+            if let _directory = directory {
+                try FileManager().removeItem(at: self.getDocumentsDirectory(fileName: file.getFileName(), at: _directory).url)
+            } else {
+                try FileManager().removeItem(at: self.getDocumentsDirectory(fileName: file.getFileName()).url)
+            }
+            completion(nil)
+        } catch {
+            completion(error)
+        }
+    }
+    
+    private func _listFiles(at directory: ESFileManagerDirectory? = nil, completion: ([ESFileStorageModel]?, Error?) -> Void) {
         
-        return (path.appendingPathComponent(self.defaultFileInfo.getFileName()), _useBackups)
+        do {
+            var listing: [URL]
+            if let _directory = directory {
+                listing = try FileManager.default.contentsOfDirectory(at: self.getDocumentsDirectory(fileName: nil, at: _directory).url, includingPropertiesForKeys: nil)
+            } else {
+                listing = try FileManager.default.contentsOfDirectory(at: self.getDocumentsDirectory(fileName: nil).url, includingPropertiesForKeys: nil)
+            }
+            
+            if listing.count > 0 {
+                var model = [ESFileStorageModel]()
+                for doc in listing {
+                    
+                    let docExtensionString = doc.pathComponents.last?.components(separatedBy: ".").last ?? ""
+                    let docExtension = ESFileExtensionType.getExtension(by: docExtensionString)
+                    let docName = doc.pathComponents.last?.components(separatedBy: docExtension.extensionDescription).first ?? ""
+                    model.append(ESFileStorageModel(name: docName, fileExtension: docExtension))
+                }
+                completion(model, nil)
+                return
+            } else {
+                completion([], nil)
+                return
+            }
+        } catch {
+            completion(nil, error)
+        }
     }
 }
 
@@ -67,39 +145,35 @@ public struct ESFileManager {
 
 extension ESFileManager: ESFileManagerProtocol {
     
-    /// write data to disk
+    /// write data file to disk at custom directory
     /// - Parameters:
-    ///   - data: data that need to be writed
     ///   - completion: completion block with optional Error
-    func write(data: Data, completion: (Error?) -> Void) {
-        do {
-            try data.write(to: self.getDocumentsDirectory().url)
-            completion(nil)
-        } catch {
-            completion(error)
-        }
+    ///   - file: file to write
+    ///   - directory: directory to write
+    func write(file: ESFileModel, at directory: ESFileManagerDirectory?, completion: (Error?) -> Void) {
+        self._write(file: file, at: directory, completion: completion)
     }
     
-    /// Read data from disk
+    /// Read data file from disk at custom directory
     /// - Parameter completion: completion block with optional data from storage
-    func read(completion: (Data?, Error?) -> Void) {
-        do {
-            let data = try FileManager.default.contents(atPath: self.getDocumentsDirectory().url.path)
-            completion(data, nil)
-        } catch {
-            completion(nil, error)
-        }
+    /// - Parameter fileStorage: file name and extension
+    /// - Parameter directory: directory to write
+    func read(fileStorage: ESFileStorageModel, at directory: ESFileManagerDirectory?, completion: (ESFileModel?, Error?) -> Void) {
+        self._read(fileStorage: fileStorage, at: directory, completion: completion)
     }
     
-    /// Remove log file from disk
+    /// Remove file from disk at custom directory
     /// - Parameter completion: completion block with optional Error
-    func clean(completion: (Error?) -> Void) {
-        do {
-            try FileManager().removeItem(at: self.getDocumentsDirectory().url)
-            completion(nil)
-        } catch {
-            completion(error)
-        }
-        
+    /// - Parameter file: file to remove
+    func remove(file: ESFileStorageModel, at directory: ESFileManagerDirectory?, completion: (Error?) -> Void) {
+        self._remove(file: file, at: directory, completion: completion)
     }
+    
+    /// Get list files in storage at custom directory
+    /// - Parameter completion: callback block with array of files.
+    /// - Parameter directory: custom directory
+    func listFiles(at directory: ESFileManagerDirectory?, completion: ([ESFileStorageModel]?, Error?) -> Void) {
+        self._listFiles(at: directory, completion: completion)
+    }
+    
 }

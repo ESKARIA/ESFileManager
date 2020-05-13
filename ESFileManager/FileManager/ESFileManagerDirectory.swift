@@ -14,13 +14,13 @@ public enum ESFileManagerDirectory {
     /// - Parameters:
     ///   - useBackups: back up this data to iTunes and iCloud
     ///   - urlPath: additional path for custom directory in documents folder. Defailt is nil.
-    case documents(urlPath: String? = nil, useBackups: Bool)
+    case documents(urlPath: String? = nil, useBackups: Bool = false)
 
     /// Use this Library subdirectories for any files you don’t want exposed to the user. Your app should not use these directories for user data files.  The contents of this directory can be backed up by iTunes and iCloud.
     /// - Parameters:
     ///   - useBackups: back up this data to iTunes and iCloud
     ///   - urlPath: additional path for custom directory in applicationSupport folder. Defailt is nil.
-    case applicationSupport(urlPath: String? = nil, useBackups: Bool)
+    case applicationSupport(urlPath: String? = nil, useBackups: Bool = false)
     
     /// Use this directory to write any app-specific support files that your app can re-create easily. Your app is generally responsible for managing the contents of this directory and for adding and deleting files as needed. In iOS 5.0 and later, the system may delete the Caches directory on rare occasions when the system is very low on disk space. This will never occur while an app is running. However, be aware that restoring from backup is not necessarily the only condition under which the Caches directory can be erased.
     /// - Parameters:
