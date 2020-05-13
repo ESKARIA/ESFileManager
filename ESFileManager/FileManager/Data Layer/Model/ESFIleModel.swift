@@ -9,8 +9,8 @@
 import Foundation
 
 /// File format for write on disk
-public enum ESFileFormatModel {
-    case txt
+public enum ESFileFormatModel: String {
+    case txt = ".txt"
 }
 
 public struct ESFileModel {
@@ -20,5 +20,9 @@ public struct ESFileModel {
     public init(name: String, fileFormat: ESFileFormatModel = .txt) {
         self.name = name
         self.fileFormat = fileFormat
+    }
+    
+    func getFileName() -> String {
+        return self.name + self.fileFormat.rawValue
     }
 }

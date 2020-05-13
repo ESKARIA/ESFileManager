@@ -20,7 +20,7 @@ protocol ESFileManagerProtocol {
     func write(data: Data, completion: (Error?) -> Void)
     /// Read data from disk
     /// - Parameter completion: completion block with optional data from storage
-    func read(completion: (Data?) -> Void)
+    func read(completion: (Data?, Error?) -> Void)
     /// Remove log file from disk
     /// - Parameter completion: completion block with optional Error
     func clean(completion: (Error?) -> Void)

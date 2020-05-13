@@ -98,12 +98,36 @@
 		D4EA4632246C06B1003C40D6 /* FileManager */ = {
 			isa = PBXGroup;
 			children = (
-				D4EA4633246C06B1003C40D6 /* ESFileManager.swift */,
-				D4EA4634246C06B1003C40D6 /* ESFileManagerProtocol.swift */,
 				D4EA4637246C070F003C40D6 /* ESFileManagerDirectory.swift */,
-				D4EA4639246C16A0003C40D6 /* ESFIleModel.swift */,
+				D4EB232A246C1A4200667580 /* Data Layer */,
 			);
 			path = FileManager;
+			sourceTree = "<group>";
+		};
+		D4EB232A246C1A4200667580 /* Data Layer */ = {
+			isa = PBXGroup;
+			children = (
+				D4EB232C246C1A5000667580 /* Manager */,
+				D4EB232B246C1A4A00667580 /* Model */,
+			);
+			path = "Data Layer";
+			sourceTree = "<group>";
+		};
+		D4EB232B246C1A4A00667580 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D4EA4639246C16A0003C40D6 /* ESFIleModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D4EB232C246C1A5000667580 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				D4EA4633246C06B1003C40D6 /* ESFileManager.swift */,
+				D4EA4634246C06B1003C40D6 /* ESFileManagerProtocol.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
