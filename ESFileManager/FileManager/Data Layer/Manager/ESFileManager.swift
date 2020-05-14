@@ -19,7 +19,7 @@ public struct ESFileManager {
         self.defaultDirectory = defaultDirectory
     }
     
-    private func getDocumentsDirectory(fileName: String?, at directory: ESFileManagerDirectory? = nil) throws -> (url: URL, useBackups: Bool) {
+    private func getDocumentsDirectory(fileName: String?, at directory: ESFileManagerDirectory? = nil) throws -> (url: URL, urlWithFileName: URL, useBackups: Bool) {
         
         var path: URL = FileManager.default.temporaryDirectory
         var _useBackups = false
@@ -50,10 +50,13 @@ public struct ESFileManager {
         } catch {
             throw error
         }
+    
+        var pathWithFileName = path
         if let file = fileName {
-            path = path.appendingPathComponent(file)
+            pathWithFileName.appendPathComponent(file)
         }
-        return (path, _useBackups)
+        
+        return (path, pathWithFileName, _useBackups)
     }
     
     
@@ -64,9 +67,21 @@ public struct ESFileManager {
                 return
             }
             if let _directory = directory {
-                try data.write(to: self.getDocumentsDirectory(fileName: file.storage.getFileName(), at: _directory).url)
+                let directory = try self.getDocumentsDirectory(fileName: file.storage.getFileName(), at: _directory)
+                
+                if !FileManager.default.fileExists(atPath: directory.url.absoluteString) {
+                    try FileManager.default.createDirectory(atPath: directory.url.absoluteString, withIntermediateDirectories: true, attributes: nil)
+                }
+                try data.write(to: directory.urlWithFileName)
             } else {
-                try data.write(to: self.getDocumentsDirectory(fileName: file.storage.getFileName()).url)
+                
+                let directory = try self.getDocumentsDirectory(fileName: file.storage.getFileName(), at: self.defaultDirectory)
+                
+                if !FileManager.default.fileExists(atPath: directory.url.absoluteString) {
+                    try FileManager.default.createDirectory(atPath: directory.url.absoluteString, withIntermediateDirectories: true, attributes: nil)
+                }
+                
+                try data.write(to: directory.urlWithFileName)
             }
             completion(nil)
         } catch {
@@ -80,9 +95,9 @@ public struct ESFileManager {
             var data: Data?
             
             if let _directory = directory {
-                data = try FileManager.default.contents(atPath: self.getDocumentsDirectory(fileName: file.storage.getFileName(), at: _directory).url.path)
+                data = try FileManager.default.contents(atPath: self.getDocumentsDirectory(fileName: file.storage.getFileName(), at: _directory).urlWithFileName.path)
             } else {
-                data = try FileManager.default.contents(atPath: self.getDocumentsDirectory(fileName: file.storage.getFileName()).url.path)
+                data = try FileManager.default.contents(atPath: self.getDocumentsDirectory(fileName: file.storage.getFileName()).urlWithFileName.path)
             }
             
             file.data = data
@@ -96,9 +111,9 @@ public struct ESFileManager {
         do {
             
             if let _directory = directory {
-                try FileManager().removeItem(at: self.getDocumentsDirectory(fileName: file.getFileName(), at: _directory).url)
+                try FileManager().removeItem(at: self.getDocumentsDirectory(fileName: file.getFileName(), at: _directory).urlWithFileName)
             } else {
-                try FileManager().removeItem(at: self.getDocumentsDirectory(fileName: file.getFileName()).url)
+                try FileManager().removeItem(at: self.getDocumentsDirectory(fileName: file.getFileName()).urlWithFileName)
             }
             completion(nil)
         } catch {

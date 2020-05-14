@@ -29,6 +29,7 @@ class ESFileManagerTests: XCTestCase {
         self.diskManager.write(file: file, at: nil) { (error) in
             XCTAssertNil(error, error?.localizedDescription ?? "")
         }
+        
         self.diskManager.read(fileStorage: ESFileStorageModel(name: "Test", fileExtension: .txt), at: nil) { (_data, error) in
             XCTAssertNil(error, error?.localizedDescription ?? "")
             XCTAssertEqual(data, _data?.data)
@@ -36,7 +37,7 @@ class ESFileManagerTests: XCTestCase {
     }
     
     func testList() {
-        self.diskManager.listFiles(at: nil) { (model, error) in
+        self.diskManager.listFiles(at: .applicationSupport(urlPath: nil, useBackups: false)) { (model, error) in
             XCTAssertGreaterThan(model?.count ?? 0, 0)
         }
     }
