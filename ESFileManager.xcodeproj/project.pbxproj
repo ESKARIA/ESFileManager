@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D42DBBD5246E9FC70065641B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D42DBBD4246E9FC70065641B /* README.md */; };
 		D4BDE4D5246C4EC800E745E1 /* ESFileStorageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BDE4D4246C4EC800E745E1 /* ESFileStorageModel.swift */; };
 		D4EA4622246C0683003C40D6 /* ESFileManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4EA4618246C0682003C40D6 /* ESFileManager.framework */; };
 		D4EA4627246C0683003C40D6 /* ESFileManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EA4626246C0683003C40D6 /* ESFileManagerTests.swift */; };
@@ -28,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D42DBBD4246E9FC70065641B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D4BDE4D4246C4EC800E745E1 /* ESFileStorageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESFileStorageModel.swift; sourceTree = "<group>"; };
 		D4EA4618246C0682003C40D6 /* ESFileManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ESFileManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4EA461B246C0683003C40D6 /* ESFileManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ESFileManager.h; sourceTree = "<group>"; };
@@ -60,9 +62,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D42DBBD3246E9DA50065641B /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				D4EA4628246C0683003C40D6 /* Info.plist */,
+				D4EA4626246C0683003C40D6 /* ESFileManagerTests.swift */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
 		D4EA460E246C0682003C40D6 = {
 			isa = PBXGroup;
 			children = (
+				D42DBBD4246E9FC70065641B /* README.md */,
 				D4EA461A246C0683003C40D6 /* ESFileManager */,
 				D4EA4625246C0683003C40D6 /* ESFileManagerTests */,
 				D4EA4619246C0682003C40D6 /* Products */,
@@ -91,8 +103,7 @@
 		D4EA4625246C0683003C40D6 /* ESFileManagerTests */ = {
 			isa = PBXGroup;
 			children = (
-				D4EA4626246C0683003C40D6 /* ESFileManagerTests.swift */,
-				D4EA4628246C0683003C40D6 /* Info.plist */,
+				D42DBBD3246E9DA50065641B /* Tests */,
 			);
 			path = ESFileManagerTests;
 			sourceTree = "<group>";
@@ -225,6 +236,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D42DBBD5246E9FC70065641B /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,7 +457,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2W82R63KFN;
-				INFOPLIST_FILE = ESFileManagerTests/Info.plist;
+				INFOPLIST_FILE = ESFileManagerTests/Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -464,7 +476,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2W82R63KFN;
-				INFOPLIST_FILE = ESFileManagerTests/Info.plist;
+				INFOPLIST_FILE = ESFileManagerTests/Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
