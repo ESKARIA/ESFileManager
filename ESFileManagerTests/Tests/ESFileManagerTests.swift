@@ -25,12 +25,12 @@ class ESFileManagerTests: XCTestCase {
     
     func testWriteReadCycle() {
         let data = "AdvancedLoggerFileManagerTest".data(using: .utf8) ?? Data()
-        let file = ESFileModel(data: data, storage: ESFileStorageModel(name: "Test", fileExtension: .txt))
+        let file = ESFileModel(data: data, storage: ESFileNameModel(name: "Test", fileExtension: .txt))
         self.diskManager.write(file: file, at: nil) { (error) in
             XCTAssertNil(error, error?.localizedDescription ?? "")
         }
         
-        self.diskManager.read(fileStorage: ESFileStorageModel(name: "Test", fileExtension: .txt), at: nil) { (_data, error) in
+        self.diskManager.read(fileStorage: ESFileNameModel(name: "Test", fileExtension: .txt), at: nil) { (_data, error) in
             XCTAssertNil(error, error?.localizedDescription ?? "")
             XCTAssertEqual(data, _data?.data)
         }
