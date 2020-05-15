@@ -37,7 +37,7 @@ class ESFileManagerTests: XCTestCase {
     }
     
     func testList() {
-        self.diskManager.listFiles(at: .applicationSupport(useBackups: false)) { (model, error) in
+        self.diskManager.listFiles(at: nil) { (model, error) in
             XCTAssertGreaterThan(model?.count ?? 0, 0)
         }
     }
