@@ -14,14 +14,14 @@ public struct ESFileModel {
     /// data represent of file
     public var data: Data?
     /// file storage model (like file name and file extension)
-    public var storage: ESFileStorageModel
+    public var name: ESFileNameModel
     
     /// Init model
     /// - Parameters:
     ///   - data: data represent of file
     ///   - storage: storage model (file name and extension)
-    public init(data: Data?, storage: ESFileStorageModel) {
+    public init(data: Data?, name: ESFileNameModel) {
         self.data = data
-        self.storage = storage
+        self.name = name
     }
 }
