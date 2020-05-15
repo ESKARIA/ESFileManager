@@ -19,20 +19,34 @@ public struct ESFileManager {
         self.defaultDirectory = defaultDirectory
     }
     
-    private func getDocumentsDirectory(fileName: String?, at directory: ESFileManagerDirectory? = nil) throws -> (url: URL, urlWithFileName: URL, useBackups: Bool) {
+    private func getDocumentsDirectory(fileName: String?, at directory: ESFileManagerDirectory? = nil) throws -> (url: URL, urlWithFileName: URL) {
         
-        var path: URL = FileManager.default.temporaryDirectory
-        var _useBackups = false
+        var path: URL
+        var pathWithFileName: URL!
         let _directory = directory != nil ? directory! : self.defaultDirectory
+        
+        func preparePath(_path: URL, useBackup: Bool) throws {
+            pathWithFileName = _path
+            if let file = fileName {
+                pathWithFileName.appendPathComponent(file)
+            }
+            
+            if !useBackup {
+                var resourceValues:URLResourceValues = URLResourceValues()
+                resourceValues.isExcludedFromBackup = true
+                try path.setResourceValues(resourceValues)
+                try pathWithFileName.setResourceValues(resourceValues)
+            }
+        }
         
         do {
             switch _directory {
             case .documents(useBackups: let useBackups):
                 path = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
-                _useBackups = useBackups
+                try preparePath(_path: path, useBackup: useBackups)
             case .applicationSupport(useBackups: let useBackups):
                 path = try FileManager.default.url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
-                _useBackups = useBackups
+                try preparePath(_path: path, useBackup: useBackups)
             case .caches:
                 path = try FileManager.default.url(for: .cachesDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
             case .tmp:
@@ -41,13 +55,7 @@ public struct ESFileManager {
         } catch {
             throw error
         }
-    
-        var pathWithFileName = path
-        if let file = fileName {
-            pathWithFileName.appendPathComponent(file)
-        }
-        
-        return (path, pathWithFileName, _useBackups)
+        return (path, pathWithFileName)
     }
     
     
@@ -67,7 +75,6 @@ public struct ESFileManager {
             } else {
                 
                 let directory = try self.getDocumentsDirectory(fileName: file.storage.getFileName(), at: self.defaultDirectory)
-                
                 if !FileManager.default.fileExists(atPath: directory.url.absoluteString) {
                     try FileManager.default.createDirectory(atPath: directory.url.absoluteString, withIntermediateDirectories: true, attributes: nil)
                 }
