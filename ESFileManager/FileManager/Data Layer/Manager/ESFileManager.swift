@@ -27,23 +27,14 @@ public struct ESFileManager {
         
         do {
             switch _directory {
-            case .documents(urlPath: let urlPath, useBackups: let useBackups):
+            case .documents(useBackups: let useBackups):
                 path = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
                 _useBackups = useBackups
-                if let urlPath = urlPath {
-                    path.appendPathComponent(urlPath)
-                }
-            case .applicationSupport(urlPath: let urlPath, useBackups: let useBackups):
+            case .applicationSupport(useBackups: let useBackups):
                 path = try FileManager.default.url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
                 _useBackups = useBackups
-                if let urlPath = urlPath {
-                    path.appendPathComponent(urlPath)
-                }
-            case .caches(urlPath: let urlPath):
+            case .caches:
                 path = try FileManager.default.url(for: .cachesDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
-                if let urlPath = urlPath {
-                    path.appendPathComponent(urlPath)
-                }
             case .tmp:
                 path = FileManager.default.temporaryDirectory
             }
