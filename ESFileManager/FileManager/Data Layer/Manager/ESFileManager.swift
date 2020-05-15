@@ -76,7 +76,6 @@ public struct ESFileManager {
             } else {
                 
                 let directory = try self.getDocumentsDirectory(fileName: file.storage.getFileName(), at: self.defaultDirectory)
-                
                 if !FileManager.default.fileExists(atPath: directory.url.absoluteString) {
                     try FileManager.default.createDirectory(atPath: directory.url.absoluteString, withIntermediateDirectories: true, attributes: nil)
                 }
