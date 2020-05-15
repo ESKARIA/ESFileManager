@@ -13,39 +13,30 @@ import Foundation
 /// Manager for write and read file from bundle
 public struct ESFileManager {
     
+    typealias DocumentDirectory = (url: URL, urlWithFileName: URL, useBackups: Bool)
+    
     private var defaultDirectory: ESFileManagerDirectory
     
     public init(defaultDirectory: ESFileManagerDirectory = .applicationSupport(useBackups: false)) {
         self.defaultDirectory = defaultDirectory
     }
     
-    private func getDocumentsDirectory(fileName: String?, at directory: ESFileManagerDirectory? = nil) throws -> (url: URL, urlWithFileName: URL) {
+    private func getDocumentsDirectory(fileName: String?,
+                                       at directory: ESFileManagerDirectory? = nil) throws -> DocumentDirectory {
         
         var path: URL
         var pathWithFileName: URL!
+        var _useBackups = false
         let _directory = directory != nil ? directory! : self.defaultDirectory
         
-        func preparePath(_path: URL, useBackup: Bool) throws {
-            pathWithFileName = _path
-            if let file = fileName {
-                pathWithFileName.appendPathComponent(file)
-            }
-            
-            if !useBackup {
-                var resourceValues:URLResourceValues = URLResourceValues()
-                resourceValues.isExcludedFromBackup = true
-                try path.setResourceValues(resourceValues)
-                try pathWithFileName.setResourceValues(resourceValues)
-            }
-        }
         do {
             switch _directory {
             case .documents(useBackups: let useBackups):
                 path = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
-                try preparePath(_path: path, useBackup: useBackups)
+                _useBackups = useBackups
             case .applicationSupport(useBackups: let useBackups):
                 path = try FileManager.default.url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
-                try preparePath(_path: path, useBackup: useBackups)
+                _useBackups = useBackups
             case .caches:
                 path = try FileManager.default.url(for: .cachesDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
             case .tmp:
@@ -54,7 +45,13 @@ public struct ESFileManager {
         } catch {
             throw error
         }
-        return (path, pathWithFileName)
+        
+        pathWithFileName = path
+        if let file = fileName {
+            pathWithFileName.appendPathComponent(file)
+        }
+        
+        return (path, pathWithFileName, _useBackups)
     }
     
     
@@ -65,21 +62,34 @@ public struct ESFileManager {
                 completion?(nil)
                 return
             }
+            
+            func setBackups(directory: DocumentDirectory) throws {
+                var _directory = directory
+                if !directory.useBackups {
+                    var resourceValues:URLResourceValues = URLResourceValues()
+                    resourceValues.isExcludedFromBackup = true
+                    try _directory.url.setResourceValues(resourceValues)
+                    try _directory.urlWithFileName.setResourceValues(resourceValues)
+                }
+            }
+            
             if let _directory = directory {
                 let directory = try self.getDocumentsDirectory(fileName: file.name.getFileName(), at: _directory)
                 
-                if !FileManager.default.fileExists(atPath: directory.url.absoluteString) {
-                    try FileManager.default.createDirectory(atPath: directory.url.absoluteString, withIntermediateDirectories: true, attributes: nil)
+                if !FileManager.default.fileExists(atPath: directory.url.path) {
+                    try FileManager.default.createDirectory(atPath: directory.url.path, withIntermediateDirectories: true, attributes: nil)
                 }
                 try data.write(to: directory.urlWithFileName)
+                try setBackups(directory: directory)
             } else {
                 
                 let directory = try self.getDocumentsDirectory(fileName: file.name.getFileName(), at: self.defaultDirectory)
-                if !FileManager.default.fileExists(atPath: directory.url.absoluteString) {
-                    try FileManager.default.createDirectory(atPath: directory.url.absoluteString, withIntermediateDirectories: true, attributes: nil)
+                if !FileManager.default.fileExists(atPath: directory.url.path) {
+                    try FileManager.default.createDirectory(atPath: directory.url.path, withIntermediateDirectories: true, attributes: nil)
                 }
                 
                 try data.write(to: directory.urlWithFileName)
+                try setBackups(directory: directory)
             }
             completion?(nil)
         } catch {
