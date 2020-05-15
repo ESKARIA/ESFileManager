@@ -27,6 +27,7 @@ let package = Package(
         .testTarget(
             name: "ESFileManagerTests",
             dependencies: ["ESFileManager"],
-            path: "ESFileManagerTests/Tests"),
+            path: "ESFileManagerTests/Tests",
+            exclude: ["ESFileManagerExample_iOS"]),
     ]
 )
