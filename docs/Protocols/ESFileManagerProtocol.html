@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>ESFileManagerProtocol Protocol Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Protocol/ESFileManagerProtocol" class="dashAnchor"></a>
+    <a title="ESFileManagerProtocol Protocol Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html"> Docs</a> (89% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        ESFileManagerProtocol Protocol Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/ESFileExtensionType.html">ESFileExtensionType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ESFileManagerDirectory.html">ESFileManagerDirectory</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/ESFileManagerProtocol.html">ESFileManagerProtocol</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/ESFileManager.html">ESFileManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ESFileModel.html">ESFileModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ESFileNameModel.html">ESFileNameModel</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>ESFileManagerProtocol</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ESFileManagerProtocol</span></code></pre>
+
+                </div>
+              </div>
+            <p>Protocol for Manager for write and read file from bundle</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13ESFileManager0aB8ProtocolP5write4file2at10completionyAA0A5ModelV_AA0aB9DirectoryOSgys5Error_pSgcSgtF"></a>
+                    <a name="//apple_ref/swift/Method/write(file:at:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13ESFileManager0aB8ProtocolP5write4file2at10completionyAA0A5ModelV_AA0aB9DirectoryOSgys5Error_pSgcSgtF">write(file:<wbr>at:<wbr>completion:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>write data file to disk at custom directory</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">write</span><span class="p">(</span><span class="nv">file</span><span class="p">:</span> <span class="kt"><a href="../Structs/ESFileModel.html">ESFileModel</a></span><span class="p">,</span> <span class="n">at</span> <span class="nv">directory</span><span class="p">:</span> <span class="kt"><a href="../Enums/ESFileManagerDirectory.html">ESFileManagerDirectory</a></span><span class="p">?,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>completion block with optional Error</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>file</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>file to write</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>directory</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>directory to write</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13ESFileManager0aB8ProtocolP4read11fileStorage2at10completionyAA0A9NameModelV_AA0aB9DirectoryOSgyAA0aJ0VSg_s5Error_pSgtcSgtF"></a>
+                    <a name="//apple_ref/swift/Method/read(fileStorage:at:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13ESFileManager0aB8ProtocolP4read11fileStorage2at10completionyAA0A9NameModelV_AA0aB9DirectoryOSgyAA0aJ0VSg_s5Error_pSgtcSgtF">read(fileStorage:<wbr>at:<wbr>completion:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Read data file from disk at custom directory</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">read</span><span class="p">(</span><span class="nv">fileStorage</span><span class="p">:</span> <span class="kt"><a href="../Structs/ESFileNameModel.html">ESFileNameModel</a></span><span class="p">,</span> <span class="n">at</span> <span class="nv">directory</span><span class="p">:</span> <span class="kt"><a href="../Enums/ESFileManagerDirectory.html">ESFileManagerDirectory</a></span><span class="p">?,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Structs/ESFileModel.html">ESFileModel</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>completion block with optional data from storage</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>fileStorage</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>file name and extension</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>directory</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>directory to write</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13ESFileManager0aB8ProtocolP6remove4file2at10completionyAA0A9NameModelV_AA0aB9DirectoryOSgys5Error_pSgcSgtF"></a>
+                    <a name="//apple_ref/swift/Method/remove(file:at:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13ESFileManager0aB8ProtocolP6remove4file2at10completionyAA0A9NameModelV_AA0aB9DirectoryOSgys5Error_pSgcSgtF">remove(file:<wbr>at:<wbr>completion:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Remove file from disk at custom directory</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">remove</span><span class="p">(</span><span class="nv">file</span><span class="p">:</span> <span class="kt"><a href="../Structs/ESFileNameModel.html">ESFileNameModel</a></span><span class="p">,</span> <span class="n">at</span> <span class="nv">directory</span><span class="p">:</span> <span class="kt"><a href="../Enums/ESFileManagerDirectory.html">ESFileManagerDirectory</a></span><span class="p">?,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>completion block with optional Error</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>file</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>file to remove</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13ESFileManager0aB8ProtocolP9listFiles2at10completionyAA0aB9DirectoryOSg_ySayAA0A9NameModelVGSg_s5Error_pSgtcSgtF"></a>
+                    <a name="//apple_ref/swift/Method/listFiles(at:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13ESFileManager0aB8ProtocolP9listFiles2at10completionyAA0aB9DirectoryOSg_ySayAA0A9NameModelVGSg_s5Error_pSgtcSgtF">listFiles(at:<wbr>completion:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get list files in storage at custom directory</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listFiles</span><span class="p">(</span><span class="n">at</span> <span class="nv">directory</span><span class="p">:</span> <span class="kt"><a href="../Enums/ESFileManagerDirectory.html">ESFileManagerDirectory</a></span><span class="p">?,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">(([</span><span class="kt"><a href="../Structs/ESFileNameModel.html">ESFileNameModel</a></span><span class="p">]?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>callback block with array of files.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>directory</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>custom directory</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2020 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2020-05-16)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
