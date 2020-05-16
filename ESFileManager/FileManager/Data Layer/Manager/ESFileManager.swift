@@ -173,33 +173,33 @@ public struct ESFileManager {
 
 extension ESFileManager: ESFileManagerProtocol {
     
-    /// write data file to disk at custom directory
+    /// write data file to disk at directory. For default directory from init set at: nil
     /// - Parameters:
     ///   - completion: completion block with optional Error
     ///   - file: file to write
-    ///   - directory: directory to write
+    ///   - directory: directory to write. Set nil for directory from init
     public func write(file: ESFileModel, at directory: ESFileManagerDirectory?, completion: ((Error?) -> Void)?) {
         self._write(file: file, at: directory, completion: completion)
     }
     
-    /// Read data file from disk at custom directory
+    /// Read data file from disk at directory. For default directory from init set at: nil
     /// - Parameter completion: completion block with optional data from storage
     /// - Parameter fileStorage: file name and extension
-    /// - Parameter directory: directory to write
+    /// - Parameter directory: directory to write. Set nil for directory from init
     public func read(fileStorage: ESFileNameModel, at directory: ESFileManagerDirectory?, completion: ((ESFileModel?, Error?) -> Void)?) {
         self._read(fileStorage: fileStorage, at: directory, completion: completion)
     }
     
-    /// Remove file from disk at custom directory
+    /// Remove file from disk at directory. For default directory from init set at: nil
     /// - Parameter completion: completion block with optional Error
     /// - Parameter file: file to remove
     public func remove(file: ESFileNameModel, at directory: ESFileManagerDirectory?, completion: ((Error?) -> Void)?) {
         self._remove(file: file, at: directory, completion: completion)
     }
     
-    /// Get list files in storage at custom directory
+    /// Get list files in storage at directory. For default directory from init set at: nil
     /// - Parameter completion: callback block with array of files.
-    /// - Parameter directory: custom directory
+    /// - Parameter directory: directory. Set nil for directory from init
     public func listFiles(at directory: ESFileManagerDirectory?, completion: (([ESFileNameModel]?, Error?) -> Void)?) {
         self._listFiles(at: directory, completion: completion)
     }

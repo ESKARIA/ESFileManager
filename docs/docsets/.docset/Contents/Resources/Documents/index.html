@@ -67,7 +67,79 @@
             
             <h1 id='esfilemanager' class='heading'>ESFileManager</h1>
 
-<p>A description of this package.</p>
+<p>A simple library for use iOS File manager</p>
+<h1 id='usage' class='heading'>Usage</h1>
+<h2 id='standart-use' class='heading'>Standart use</h2>
+
+<p>1) Import in project</p>
+<pre class="highlight swift"><code><span class="kd">import</span> <span class="kt">ESFileManager</span>
+</code></pre>
+
+<p>2) Create property of ESFileManager. In argument used default way for write/read data, but you can use init with default value &ldquo;Document folder without iCloud sync&rdquo;. You can read about <a href="https://eskaria.github.io/ESFileManager/Enums/ESFileExtensionType.html">this folders and when use kind of this</a></p>
+<pre class="highlight swift"><code><span class="kd">private</span> <span class="k">var</span> <span class="nv">fileManager</span><span class="p">:</span> <span class="kt">ESFileManagerProtocol</span> <span class="o">=</span> <span class="kt">ESFileManager</span><span class="p">()</span>
+</code></pre>
+
+<p>3) You can read data with <a href="https://eskaria.github.io/ESFileManager/Protocols/ESFileManagerProtocol.html#/s:13ESFileManager0aB8ProtocolP4read11fileStorage2at10completionyAA0A9NameModelV_AA0aB9DirectoryOSgyAA0aJ0VSg_s5Error_pSgtcSgtF">read func</a>. For read and write used <a href="https://eskaria.github.io/ESFileManager/Structs/ESFileModel.html">model of file</a> which contain <a href="https://eskaria.github.io/ESFileManager/Structs/ESFileNameModel.html">model with name and extension of file</a></p>
+<pre class="highlight swift"><code><span class="kd">private</span> <span class="kd">func</span> <span class="nf">readFile</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// create name and extension of file to read</span>
+    <span class="k">let</span> <span class="nv">file</span> <span class="o">=</span> <span class="kt">ESFileNameModel</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="s">"SwiftDoc"</span><span class="p">,</span> <span class="nv">fileExtension</span><span class="p">:</span> <span class="o">.</span><span class="n">txt</span><span class="p">)</span>
+
+    <span class="c1">//read this file. At = nil cause we use default directory</span>
+    <span class="n">fileManager</span><span class="o">.</span><span class="nf">read</span><span class="p">(</span><span class="nv">fileStorage</span><span class="p">:</span> <span class="n">file</span><span class="p">,</span> <span class="nv">at</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span> <span class="k">in</span>
+        <span class="c1">//fetch error</span>
+        <span class="k">if</span> <span class="k">let</span> <span class="nv">error</span> <span class="o">=</span> <span class="n">error</span> <span class="p">{</span>
+            <span class="c1">//fetch error</span>
+            <span class="k">return</span>
+        <span class="p">}</span>
+        <span class="c1">//fetch empty state of file</span>
+        <span class="k">guard</span> <span class="k">let</span> <span class="nv">data</span> <span class="o">=</span> <span class="n">file</span><span class="p">?</span><span class="o">.</span><span class="n">data</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="c1">// file is empty!</span>
+            <span class="k">return</span>
+        <span class="p">}</span>
+        <span class="c1">//show our file</span>
+        <span class="k">let</span> <span class="nv">stringFile</span> <span class="o">=</span> <span class="kt">String</span><span class="p">(</span><span class="nv">data</span><span class="p">:</span> <span class="n">data</span><span class="p">,</span> <span class="nv">encoding</span><span class="p">:</span> <span class="o">.</span><span class="n">utf8</span><span class="p">)</span>
+        <span class="c1">//You successful read the file!</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>3) You can write your file on disk with <a href="https://eskaria.github.io/ESFileManager/Protocols/ESFileManagerProtocol.html#/s:13ESFileManager0aB8ProtocolP5write4file2at10completionyAA0A5ModelV_AA0aB9DirectoryOSgys5Error_pSgcSgtF">write func</a></p>
+<pre class="highlight swift"><code><span class="kd">private</span> <span class="kd">func</span> <span class="nf">writeFile</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// create data to write</span>
+    <span class="k">let</span> <span class="nv">data</span> <span class="o">=</span> <span class="s">"Swift is amazing!"</span><span class="o">.</span><span class="nf">data</span><span class="p">(</span><span class="nv">using</span><span class="p">:</span> <span class="o">.</span><span class="n">utf8</span><span class="p">)</span>
+
+    <span class="k">let</span> <span class="nv">fileName</span> <span class="o">=</span> <span class="kt">ESFileNameModel</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="s">"SwiftDoc"</span><span class="p">,</span> <span class="nv">fileExtension</span><span class="p">:</span> <span class="o">.</span><span class="n">txt</span><span class="p">)</span>
+    <span class="k">let</span> <span class="nv">file</span> <span class="o">=</span> <span class="kt">ESFileModel</span><span class="p">(</span><span class="nv">data</span><span class="p">:</span> <span class="n">data</span><span class="p">,</span> <span class="nv">name</span><span class="p">:</span> <span class="n">fileName</span><span class="p">)</span>
+
+    <span class="c1">// write data. At = nil cause we use default directory from prepareVC method</span>
+    <span class="n">fileManager</span><span class="o">.</span><span class="nf">write</span><span class="p">(</span><span class="nv">file</span><span class="p">:</span> <span class="n">file</span><span class="p">,</span> <span class="nv">at</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="k">in</span>
+        <span class="k">if</span> <span class="k">let</span> <span class="nv">error</span> <span class="o">=</span> <span class="n">error</span> <span class="p">{</span>
+            <span class="c1">//error</span>
+            <span class="k">return</span>
+        <span class="p">}</span>
+        <span class="c1">//You successful recorded the file!</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>4) For remove file you <a href="https://eskaria.github.io/ESFileManager/Protocols/ESFileManagerProtocol.html#/s:13ESFileManager0aB8ProtocolP6remove4file2at10completionyAA0A9NameModelV_AA0aB9DirectoryOSgys5Error_pSgcSgtF">remove func</a></p>
+<pre class="highlight swift"><code><span class="kd">private</span> <span class="kd">func</span> <span class="nf">removeFile</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// create name and extension of file to remove</span>
+    <span class="k">let</span> <span class="nv">file</span> <span class="o">=</span> <span class="kt">ESFileNameModel</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="s">"SwiftDoc"</span><span class="p">,</span> <span class="nv">fileExtension</span><span class="p">:</span> <span class="o">.</span><span class="n">txt</span><span class="p">)</span>
+
+    <span class="c1">//remove this file. At = nil cause we use default directory</span>
+    <span class="n">fileManager</span><span class="o">.</span><span class="nf">remove</span><span class="p">(</span><span class="nv">file</span><span class="p">:</span> <span class="n">file</span><span class="p">,</span> <span class="nv">at</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="k">in</span>
+        <span class="c1">//fetch error</span>
+        <span class="k">if</span> <span class="k">let</span> <span class="nv">error</span> <span class="o">=</span> <span class="n">error</span> <span class="p">{</span>
+            <span class="c1">// fetch error</span>
+            <span class="k">return</span>
+        <span class="p">}</span>
+        <span class="c1">//You successful remove this file!</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>5) You can geet list of files in your directory with <a href="https://eskaria.github.io/ESFileManager/Protocols/ESFileManagerProtocol.html#/s:13ESFileManager0aB8ProtocolP9listFiles2at10completionyAA0aB9DirectoryOSg_ySayAA0A9NameModelVGSg_s5Error_pSgtcSgtF">list func</a></p>
 
           </section>
         </section>
