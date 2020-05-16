@@ -54,7 +54,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aeY-Ci-86E">
                                         <rect key="frame" x="0.0" y="355" width="374" height="85"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <state key="normal" title="Remove file at default directory"/>
+                                        <state key="normal" title="Remove file at all directories"/>
                                         <connections>
                                             <action selector="removeButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="37T-2e-lKP"/>
                                         </connections>

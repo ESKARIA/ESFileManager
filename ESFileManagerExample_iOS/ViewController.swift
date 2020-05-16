@@ -134,6 +134,22 @@ final class ViewController: UIViewController {
         }
     }
     
+    private func removeFileFromCustomDirectory() {
+        // create name and extension of file to remove
+        let file = ESFileNameModel(name: "SwiftDoc", fileExtension: .txt)
+        
+        //remove this file. At = nil cause we use default directory
+        fileManager.remove(file: file, at: .documents(customPath: "Test")) { (error) in
+            //fetch error
+            if let error = error {
+                self.logString = "You don't remove the file with error: \(error.localizedDescription)"
+                return
+            }
+            //show our file
+            self.logString = "You successful remove this file!"
+        }
+    }
+    
     @IBAction func writeButtonAction(_ sender: UIButton) {
     
         switch sender.tag {
@@ -153,6 +169,7 @@ final class ViewController: UIViewController {
     
     @IBAction func removeButtonAction(_ sender: UIButton) {
         removeFile()
+        removeFileFromCustomDirectory()
     }
 }
 
