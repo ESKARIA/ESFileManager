@@ -1,0 +1,26 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/dmitriytoropkin/WithoutSync/Eskaria/ESFileManager/ESFileManager/FileManager/Data Layer/Manager/ESFileManager.swift",
+      "line": 20,
+      "symbol": "ESFileManager.init(defaultDirectory:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dmitriytoropkin/WithoutSync/Eskaria/ESFileManager/ESFileManager/FileManager/Data Layer/Model/ESFileNameModel.swift",
+      "line": 13,
+      "symbol": "ESFileExtensionType.txt",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dmitriytoropkin/WithoutSync/Eskaria/ESFileManager/ESFileManager/FileManager/Data Layer/Model/ESFileNameModel.swift",
+      "line": 14,
+      "symbol": "ESFileExtensionType.custom(extensionName:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/dmitriytoropkin/WithoutSync/Eskaria/ESFileManager"
+}
