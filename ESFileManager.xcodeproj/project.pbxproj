@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D42DBBD5246E9FC70065641B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D42DBBD4246E9FC70065641B /* README.md */; };
-		D4BDE4D5246C4EC800E745E1 /* ESFileStorageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BDE4D4246C4EC800E745E1 /* ESFileStorageModel.swift */; };
+		D4BDE4D5246C4EC800E745E1 /* ESFileNameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BDE4D4246C4EC800E745E1 /* ESFileNameModel.swift */; };
 		D4EA4622246C0683003C40D6 /* ESFileManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4EA4618246C0682003C40D6 /* ESFileManager.framework */; };
 		D4EA4627246C0683003C40D6 /* ESFileManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EA4626246C0683003C40D6 /* ESFileManagerTests.swift */; };
 		D4EA4629246C0683003C40D6 /* ESFileManager.h in Headers */ = {isa = PBXBuildFile; fileRef = D4EA461B246C0683003C40D6 /* ESFileManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -16,6 +16,13 @@
 		D4EA4636246C06B1003C40D6 /* ESFileManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EA4634246C06B1003C40D6 /* ESFileManagerProtocol.swift */; };
 		D4EA4638246C070F003C40D6 /* ESFileManagerDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EA4637246C070F003C40D6 /* ESFileManagerDirectory.swift */; };
 		D4EA463A246C16A0003C40D6 /* ESFIleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EA4639246C16A0003C40D6 /* ESFIleModel.swift */; };
+		D4FCD008246EB88800B85CA6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FCD007246EB88800B85CA6 /* AppDelegate.swift */; };
+		D4FCD00C246EB88800B85CA6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FCD00B246EB88800B85CA6 /* ViewController.swift */; };
+		D4FCD00F246EB88800B85CA6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4FCD00D246EB88800B85CA6 /* Main.storyboard */; };
+		D4FCD011246EB88900B85CA6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4FCD010246EB88900B85CA6 /* Assets.xcassets */; };
+		D4FCD014246EB88900B85CA6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4FCD012246EB88900B85CA6 /* LaunchScreen.storyboard */; };
+		D4FCD01A246EBA0C00B85CA6 /* ESFileManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4EA4618246C0682003C40D6 /* ESFileManager.framework */; };
+		D4FCD01B246EBA0C00B85CA6 /* ESFileManager.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D4EA4618246C0682003C40D6 /* ESFileManager.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,11 +33,32 @@
 			remoteGlobalIDString = D4EA4617246C0682003C40D6;
 			remoteInfo = ESFileManager;
 		};
+		D4FCD01C246EBA0C00B85CA6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D4EA460F246C0682003C40D6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D4EA4617246C0682003C40D6;
+			remoteInfo = ESFileManager;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D4FCD01E246EBA0C00B85CA6 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D4FCD01B246EBA0C00B85CA6 /* ESFileManager.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		D42DBBD4246E9FC70065641B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		D4BDE4D4246C4EC800E745E1 /* ESFileStorageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESFileStorageModel.swift; sourceTree = "<group>"; };
+		D4BDE4D4246C4EC800E745E1 /* ESFileNameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESFileNameModel.swift; sourceTree = "<group>"; };
 		D4EA4618246C0682003C40D6 /* ESFileManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ESFileManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4EA461B246C0683003C40D6 /* ESFileManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ESFileManager.h; sourceTree = "<group>"; };
 		D4EA461C246C0683003C40D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -41,6 +69,13 @@
 		D4EA4634246C06B1003C40D6 /* ESFileManagerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ESFileManagerProtocol.swift; sourceTree = "<group>"; };
 		D4EA4637246C070F003C40D6 /* ESFileManagerDirectory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESFileManagerDirectory.swift; sourceTree = "<group>"; };
 		D4EA4639246C16A0003C40D6 /* ESFIleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESFIleModel.swift; sourceTree = "<group>"; };
+		D4FCD005246EB88800B85CA6 /* ESFileManagerExample_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ESFileManagerExample_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4FCD007246EB88800B85CA6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D4FCD00B246EB88800B85CA6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D4FCD00E246EB88800B85CA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D4FCD010246EB88900B85CA6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D4FCD013246EB88900B85CA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D4FCD015246EB88900B85CA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +91,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4EA4622246C0683003C40D6 /* ESFileManager.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4FCD002246EB88800B85CA6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4FCD01A246EBA0C00B85CA6 /* ESFileManager.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,7 +120,9 @@
 				D42DBBD4246E9FC70065641B /* README.md */,
 				D4EA461A246C0683003C40D6 /* ESFileManager */,
 				D4EA4625246C0683003C40D6 /* ESFileManagerTests */,
+				D4FCD006246EB88800B85CA6 /* ESFileManagerExample_iOS */,
 				D4EA4619246C0682003C40D6 /* Products */,
+				D4FCD019246EBA0C00B85CA6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -86,6 +131,7 @@
 			children = (
 				D4EA4618246C0682003C40D6 /* ESFileManager.framework */,
 				D4EA4621246C0683003C40D6 /* ESFileManagerTests.xctest */,
+				D4FCD005246EB88800B85CA6 /* ESFileManagerExample_iOS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -130,7 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				D4EA4639246C16A0003C40D6 /* ESFIleModel.swift */,
-				D4BDE4D4246C4EC800E745E1 /* ESFileStorageModel.swift */,
+				D4BDE4D4246C4EC800E745E1 /* ESFileNameModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -142,6 +188,26 @@
 				D4EA4634246C06B1003C40D6 /* ESFileManagerProtocol.swift */,
 			);
 			path = Manager;
+			sourceTree = "<group>";
+		};
+		D4FCD006246EB88800B85CA6 /* ESFileManagerExample_iOS */ = {
+			isa = PBXGroup;
+			children = (
+				D4FCD007246EB88800B85CA6 /* AppDelegate.swift */,
+				D4FCD00B246EB88800B85CA6 /* ViewController.swift */,
+				D4FCD00D246EB88800B85CA6 /* Main.storyboard */,
+				D4FCD010246EB88900B85CA6 /* Assets.xcassets */,
+				D4FCD012246EB88900B85CA6 /* LaunchScreen.storyboard */,
+				D4FCD015246EB88900B85CA6 /* Info.plist */,
+			);
+			path = ESFileManagerExample_iOS;
+			sourceTree = "<group>";
+		};
+		D4FCD019246EBA0C00B85CA6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,6 +260,25 @@
 			productReference = D4EA4621246C0683003C40D6 /* ESFileManagerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		D4FCD004246EB88800B85CA6 /* ESFileManagerExample_iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D4FCD018246EB88900B85CA6 /* Build configuration list for PBXNativeTarget "ESFileManagerExample_iOS" */;
+			buildPhases = (
+				D4FCD001246EB88800B85CA6 /* Sources */,
+				D4FCD002246EB88800B85CA6 /* Frameworks */,
+				D4FCD003246EB88800B85CA6 /* Resources */,
+				D4FCD01E246EBA0C00B85CA6 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D4FCD01D246EBA0C00B85CA6 /* PBXTargetDependency */,
+			);
+			name = ESFileManagerExample_iOS;
+			productName = ESFileManagerExample_iOS;
+			productReference = D4FCD005246EB88800B85CA6 /* ESFileManagerExample_iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -208,6 +293,9 @@
 						CreatedOnToolsVersion = 11.4.1;
 					};
 					D4EA4620246C0683003C40D6 = {
+						CreatedOnToolsVersion = 11.4.1;
+					};
+					D4FCD004246EB88800B85CA6 = {
 						CreatedOnToolsVersion = 11.4.1;
 					};
 				};
@@ -227,6 +315,7 @@
 			targets = (
 				D4EA4617246C0682003C40D6 /* ESFileManager */,
 				D4EA4620246C0683003C40D6 /* ESFileManagerTests */,
+				D4FCD004246EB88800B85CA6 /* ESFileManagerExample_iOS */,
 			);
 		};
 /* End PBXProject section */
@@ -247,6 +336,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D4FCD003246EB88800B85CA6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4FCD014246EB88900B85CA6 /* LaunchScreen.storyboard in Resources */,
+				D4FCD011246EB88900B85CA6 /* Assets.xcassets in Resources */,
+				D4FCD00F246EB88800B85CA6 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -257,7 +356,7 @@
 				D4EA4638246C070F003C40D6 /* ESFileManagerDirectory.swift in Sources */,
 				D4EA463A246C16A0003C40D6 /* ESFIleModel.swift in Sources */,
 				D4EA4636246C06B1003C40D6 /* ESFileManagerProtocol.swift in Sources */,
-				D4BDE4D5246C4EC800E745E1 /* ESFileStorageModel.swift in Sources */,
+				D4BDE4D5246C4EC800E745E1 /* ESFileNameModel.swift in Sources */,
 				D4EA4635246C06B1003C40D6 /* ESFileManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -270,6 +369,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D4FCD001246EB88800B85CA6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4FCD00C246EB88800B85CA6 /* ViewController.swift in Sources */,
+				D4FCD008246EB88800B85CA6 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -278,7 +386,31 @@
 			target = D4EA4617246C0682003C40D6 /* ESFileManager */;
 			targetProxy = D4EA4623246C0683003C40D6 /* PBXContainerItemProxy */;
 		};
+		D4FCD01D246EBA0C00B85CA6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D4EA4617246C0682003C40D6 /* ESFileManager */;
+			targetProxy = D4FCD01C246EBA0C00B85CA6 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D4FCD00D246EB88800B85CA6 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D4FCD00E246EB88800B85CA6 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D4FCD012246EB88900B85CA6 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D4FCD013246EB88900B85CA6 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		D4EA462A246C0683003C40D6 /* Debug */ = {
@@ -332,7 +464,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -389,7 +521,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -489,6 +621,44 @@
 			};
 			name = Release;
 		};
+		D4FCD016246EB88900B85CA6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2W82R63KFN;
+				INFOPLIST_FILE = ESFileManagerExample_iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "DmitriyToropkin.ESFileManagerExample-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D4FCD017246EB88900B85CA6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2W82R63KFN;
+				INFOPLIST_FILE = ESFileManagerExample_iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "DmitriyToropkin.ESFileManagerExample-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -515,6 +685,15 @@
 			buildConfigurations = (
 				D4EA4630246C0683003C40D6 /* Debug */,
 				D4EA4631246C0683003C40D6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D4FCD018246EB88900B85CA6 /* Build configuration list for PBXNativeTarget "ESFileManagerExample_iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4FCD016246EB88900B85CA6 /* Debug */,
+				D4FCD017246EB88900B85CA6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -22,10 +22,12 @@ let package = Package(
         .target(
             name: "ESFileManager",
             dependencies: [],
-            path: "ESFileManager"),
+            path: "ESFileManager",
+            exclude: ["ESFileManagerExample_iOS"]),
         .testTarget(
             name: "ESFileManagerTests",
             dependencies: ["ESFileManager"],
-            path: "ESFileManagerTests/Tests"),
+            path: "ESFileManagerTests/Tests",
+            exclude: ["ESFileManagerExample_iOS"]),
     ]
 )

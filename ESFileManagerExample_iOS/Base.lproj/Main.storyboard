@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ESFileManagerExample_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="NKv-kD-iqJ">
+                                <rect key="frame" x="20" y="422" width="374" height="440"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OPJ-xO-4WA">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="85"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <state key="normal" title="Write on default directory"/>
+                                        <connections>
+                                            <action selector="writeButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NUZ-Cz-fjE"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yv5-DZ-sqE">
+                                        <rect key="frame" x="0.0" y="89" width="374" height="84.5"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <state key="normal" title="Read from default directory"/>
+                                        <connections>
+                                            <action selector="readButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="feu-PS-KcK"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yXi-cy-9VS">
+                                        <rect key="frame" x="0.0" y="177.5" width="374" height="85"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <state key="normal" title="Write on custom directory"/>
+                                        <connections>
+                                            <action selector="writeButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HJf-ay-rnj"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oZW-XP-zp0">
+                                        <rect key="frame" x="0.0" y="266.5" width="374" height="84.5"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <state key="normal" title="Read from custom directory"/>
+                                        <connections>
+                                            <action selector="readButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oBp-f8-qho"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aeY-Ci-86E">
+                                        <rect key="frame" x="0.0" y="355" width="374" height="85"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <state key="normal" title="Remove file at all directories"/>
+                                        <connections>
+                                            <action selector="removeButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="37T-2e-lKP"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="NKv-kD-iqJ" secondAttribute="height" multiplier="17:20" id="45T-Cx-AY4"/>
+                                </constraints>
+                            </stackView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6WO-yy-NRG">
+                                <rect key="frame" x="0.0" y="76" width="414" height="305"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n98-3k-3bz">
+                                        <rect key="frame" x="0.0" y="0.0" width="412" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="n98-3k-3bz" secondAttribute="trailing" constant="8" id="1gC-Ok-BUd"/>
+                                    <constraint firstItem="n98-3k-3bz" firstAttribute="top" secondItem="6WO-yy-NRG" secondAttribute="top" id="MBE-eH-lFA"/>
+                                    <constraint firstItem="n98-3k-3bz" firstAttribute="leading" secondItem="6WO-yy-NRG" secondAttribute="leading" id="qVZ-jB-a4X"/>
+                                    <constraint firstAttribute="bottom" secondItem="n98-3k-3bz" secondAttribute="bottom" constant="8" id="uR2-dZ-PbF"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="ac0-ug-9fz"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="4RP-gW-K1T"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="n98-3k-3bz" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.995169" id="4QC-Tr-eXC"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NKv-kD-iqJ" secondAttribute="trailing" constant="20" id="Kar-2m-zCO"/>
+                            <constraint firstItem="6WO-yy-NRG" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="32" id="L6u-jP-CsI"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="NKv-kD-iqJ" secondAttribute="bottom" id="Rls-6w-Sb4"/>
+                            <constraint firstItem="NKv-kD-iqJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="WRZ-AZ-Rp8"/>
+                            <constraint firstItem="NKv-kD-iqJ" firstAttribute="top" secondItem="6WO-yy-NRG" secondAttribute="bottom" constant="41" id="giL-vo-wyd"/>
+                            <constraint firstItem="6WO-yy-NRG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="hRw-OV-COn"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6WO-yy-NRG" secondAttribute="trailing" id="vQ4-Xm-Zmd"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="logLabel" destination="n98-3k-3bz" id="VKS-gl-3ZM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="109.82142857142857"/>
+        </scene>
+    </scenes>
+</document>

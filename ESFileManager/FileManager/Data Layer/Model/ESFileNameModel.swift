@@ -29,7 +29,7 @@ public enum ESFileExtensionType {
 }
 
 /// file storage model ( file name and file extension)
-public struct ESFileStorageModel {
+public struct ESFileNameModel {
     /// file name
     public var name: String
     /// file extension
