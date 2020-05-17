@@ -26,6 +26,6 @@ Pod::Spec.new do |s|
     
     # 8
     s.source_files = "ESFileManager/**/*.{swift}"
-    
+    s.exclude_files = 'ESFileManager/ESFileManagerExample_iOS/', 'ESFileManagerExample_iOS/', 'ESFileManager/ESFileManagerTests', 'ESFileManagerTests'
     
 end
