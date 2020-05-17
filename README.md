@@ -2,6 +2,16 @@
 
 A simple library for use iOS File manager
 
+# Install
+
+## Swift Package Manager
+
+Add ESFileManager git url to you project and it install automatically
+
+## Cocoapods
+
+Just add ESFileManager to your podfile
+
 # Usage
 
 ## Standart use
