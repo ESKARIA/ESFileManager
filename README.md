@@ -2,6 +2,23 @@
 
 A simple library for use iOS File manager
 
+# Install
+
+## Swift Package Manager
+
+Add ESFileManager git url to you project and it install automatically
+
+## Cocoapods
+
+Just add ESFileManager to your podfile like this 
+
+```swift
+pod 'ESPFileManager'
+```
+
+Why it called esPfilemanager? Cause one guy create lib with name ESFIleManager before i do
+
+
 # Usage
 
 ## Standart use
@@ -11,8 +28,6 @@ A simple library for use iOS File manager
 ```swift
 import ESFileManager
 ```
-
-[model of log](https://eskaria.github.io/AdvancedLogger/Structs.html#/s:14AdvancedLogger0aB5ModelV) 
 
 2) Create property of ESFileManager. In argument used default way for write/read data, but you can use init with default value "Document folder without iCloud sync". You can read about [this folders and when use kind of this](https://eskaria.github.io/ESFileManager/Enums/ESFileExtensionType.html)
 

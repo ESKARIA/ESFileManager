@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D42DBBD5246E9FC70065641B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D42DBBD4246E9FC70065641B /* README.md */; };
+		D4B11B212472F61B001647DA /* ESPFileManager.podspec in Resources */ = {isa = PBXBuildFile; fileRef = D4B11B202472F61B001647DA /* ESPFileManager.podspec */; };
 		D4BDE4D5246C4EC800E745E1 /* ESFileNameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BDE4D4246C4EC800E745E1 /* ESFileNameModel.swift */; };
 		D4EA4622246C0683003C40D6 /* ESFileManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4EA4618246C0682003C40D6 /* ESFileManager.framework */; };
 		D4EA4627246C0683003C40D6 /* ESFileManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EA4626246C0683003C40D6 /* ESFileManagerTests.swift */; };
@@ -58,6 +59,7 @@
 
 /* Begin PBXFileReference section */
 		D42DBBD4246E9FC70065641B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		D4B11B202472F61B001647DA /* ESPFileManager.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ESPFileManager.podspec; sourceTree = "<group>"; };
 		D4BDE4D4246C4EC800E745E1 /* ESFileNameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESFileNameModel.swift; sourceTree = "<group>"; };
 		D4EA4618246C0682003C40D6 /* ESFileManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ESFileManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4EA461B246C0683003C40D6 /* ESFileManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ESFileManager.h; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				D42DBBD4246E9FC70065641B /* README.md */,
+				D4B11B202472F61B001647DA /* ESPFileManager.podspec */,
 				D4EA461A246C0683003C40D6 /* ESFileManager */,
 				D4EA4625246C0683003C40D6 /* ESFileManagerTests */,
 				D4FCD006246EB88800B85CA6 /* ESFileManagerExample_iOS */,
@@ -326,6 +329,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D42DBBD5246E9FC70065641B /* README.md in Resources */,
+				D4B11B212472F61B001647DA /* ESPFileManager.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -538,7 +542,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 2W82R63KFN;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -563,7 +567,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 2W82R63KFN;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
