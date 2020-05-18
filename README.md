@@ -13,10 +13,11 @@ Add ESFileManager git url to you project and it install automatically
 Just add ESFileManager to your podfile like this 
 
 ```swift
-pod 'ESFileManager', :git => 'https://github.com/ESKARIA/ESFileManager.git'
+pod 'ESPFileManager'
 ```
 
-Why we used git url? Cause lib with name "ESFIleManager" exist on cocoapods trunk ((
+Why it called esPfilemanager? Cause one guy create lib with name ESFIleManager before i do
+
 
 # Usage
 

@@ -2,12 +2,12 @@ Pod::Spec.new do |s|
     
     # 1
     s.platforms = { :ios => "11.0", :osx => "10.14", :watchos => "5.0", :tvos => "10.0" }
-    s.name = "ESFileManager"
+    s.name = "ESPFileManager"
     s.summary = "ESFileManager swift 5.1 framework for advanced write and read file from your local iOS storage."
     s.requires_arc = true
     
     # 2
-    s.version = "0.0.4"
+    s.version = "0.0.5"
     
     # 3
     s.license = { :type => "MIT", :file => "LICENSE" }
